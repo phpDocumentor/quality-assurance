@@ -5,7 +5,7 @@ LABEL com.github.actions.description="check php coding standards"
 LABEL com.github.actions.icon="check"
 LABEL com.github.actions.color="blue"
 
-LABEL version="2.0.0"
+LABEL version="1.0.0"
 LABEL name="phpdoc-phpcs-ga"
 LABEL repository="http://github.com/phpdocumentor/phpdoc-qa"
 LABEL homepage="http://github.com/actions"
