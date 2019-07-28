@@ -7,7 +7,7 @@ elif [ "$1" = 'gpg' ]; then
     echo "$SECRET_KEY" > keys.asc
     echo "prepare import keys"
     gpg --batch --yes --import keys.asc
-    echo $PASSPHRASE | gpg ${*:3}
+    echo "$PASSPHRASE" | gpg "${*:3}"
 elif [ "$1" = 'php' ]; then
     sh -c "php ${*:3}"
 fi
