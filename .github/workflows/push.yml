@@ -10,14 +10,12 @@ jobs:
       run: make test
 #    - name: Lint
 #      run: make lint
-    - name: Build
-      run: make build
     - name: Docker Login
-      run: docker login
       if: github.ref == 'refs/heads/master' 
-      env:
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-    - name: Publish
-      if: github.ref == 'refs/heads/master' 
-      run: make publish
+      uses: azure/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_PASSWORD }}
+        password: ${{ secrets.DOCKER_USERNAME }}
+      run: |
+        make build
+        make publish
