@@ -14,7 +14,7 @@ LABEL maintainer="Jaapio <opensouce@ijaap.nl>"
 COPY --from=composer:1.8.4 /usr/bin/composer /usr/local/bin/composer
 
 RUN composer global require humbug/box
-RUN apk add --no-cache git gnupg
+RUN apk add --no-cache git gnupg ncurses 
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
