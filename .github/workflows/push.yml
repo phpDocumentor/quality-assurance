@@ -14,10 +14,10 @@ jobs:
       run: make build
     - name: Docker Login
       run: docker login
-      if: github.ref == 'master' 
+      if: github.ref == 'refs/heads/master' 
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
     - name: Publish
-      if: github.ref == 'master' 
+      if: github.ref == 'refs/heads/master' 
       run: make publish
