@@ -16,6 +16,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_PASSWORD }}
         password: ${{ secrets.DOCKER_USERNAME }}
-      run: |
+    - run: |
         make build
         make publish
