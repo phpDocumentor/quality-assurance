@@ -12,14 +12,12 @@ jobs:
       run: make lint
     - name: Build
       run: make build
-    - name: Publish Filter
-      uses: actions/bin/filter@master
-      with:
-        args: branch master
     - name: Docker Login
       run: docker login
+      if: github.ref == 'master' 
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
     - name: Publish
+      if: github.ref == 'master' 
       run: make publish
