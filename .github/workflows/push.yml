@@ -8,8 +8,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Test
       run: make test
-    - name: Lint
-      run: make lint
+#    - name: Lint
+#      run: make lint
     - name: Build
       run: make build
     - name: Docker Login
