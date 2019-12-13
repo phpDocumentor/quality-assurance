@@ -1,4 +1,4 @@
-FROM phpstan/phpstan:0.11
+FROM phpstan/phpstan:0.12
 
 LABEL com.github.actions.name="phpdoc-phpstan"
 LABEL com.github.actions.description="run phpstan, a php static analysis tool"
