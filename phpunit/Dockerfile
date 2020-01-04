@@ -11,10 +11,10 @@ LABEL repository="http://github.com/phpDocumentor/quality-assurance"
 LABEL homepage="http://github.com/actions"
 LABEL maintainer="Jaapio <opensource@ijaap.nl>"
 
-RUN mkdir /data \
+RUN mkdir -p /github/workspace \
     && yes | pecl install pcov \
     && echo "pcov.enabled=1" >> /usr/local/etc/php/conf.d/pcov.ini \
-    && echo "pcov.directory=/data" >> /usr/local/etc/php/conf.d/pcov.ini
+    && echo "pcov.directory=/github/workspace" >> /usr/local/etc/php/conf.d/pcov.ini
 
 RUN apt-get update \
     && apt-get install -yq graphviz curl git libicu-dev libicu63 zlib1g-dev gpg \
@@ -26,8 +26,6 @@ COPY --from=composer:1.8.4 /usr/bin/composer /usr/local/bin/composer
 
 RUN composer global require phpunit/phpunit:^8.0
 
-WORKDIR "/data"
+WORKDIR "/github/workspace"
 
-ENTRYPOINT ["/root/.composer/vendor/bin/phpunit"]
-
-CMD ["--help"]
+ENTRYPOINT "/root/.composer/vendor/bin/phpunit"
