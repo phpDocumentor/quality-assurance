@@ -7,9 +7,9 @@ LABEL com.github.actions.color="blue"
 
 LABEL version="1.0.0"
 LABEL name="phpdoc-phpcs-ga"
-LABEL repository="http://github.com/phpdocumentor/phpdoc-qa"
+LABEL repository="http://github.com/phpDocumentor/quality-assurance"
 LABEL homepage="http://github.com/actions"
-LABEL maintainer="Jaapio <opensouce@ijaap.nl>"
+LABEL maintainer="Jaapio <opensource@ijaap.nl>"
 
 COPY --from=composer:1.8.4 /usr/bin/composer /usr/local/bin/composer
 
