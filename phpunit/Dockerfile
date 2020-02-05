@@ -28,4 +28,4 @@ RUN composer global require phpunit/phpunit:^8.0
 
 WORKDIR "/github/workspace"
 
-ENTRYPOINT "/root/.composer/vendor/bin/phpunit"
+ENTRYPOINT ["/root/.composer/vendor/phpunit/phpunit/phpunit"]
