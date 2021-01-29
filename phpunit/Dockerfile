@@ -24,7 +24,7 @@ RUN apt-get update \
 
 COPY --from=composer:1.8.4 /usr/bin/composer /usr/local/bin/composer
 
-RUN composer global require phpunit/phpunit:^8.0
+RUN composer global require phpunit/phpunit:^8.0 phpspec/prophecy-phpunit
 
 WORKDIR "/github/workspace"
 
